@@ -12,7 +12,8 @@ hpc_multi.py
               generate all the target protein nodes' shortest path to all the other nodes in the whole graph.
               local running:
                   $ python hpc_multi.py --infile input/0.in (1.in,2.in ...8.in)
-                   output folder (default): target_node_shortest_path
+                   output folder (default): 'target_node_shortest_path/'
+                   graph_structure_model(defalut):'undirected_dataset.pkl'
               hpc running:
                   needs hpc folder
                   input list: cut the original target protein list to 9 input files. They are put in input folder.
