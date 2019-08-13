@@ -1,0 +1,20 @@
+preprocess_dataset.py makes 'original_data/' folder's files to 'index_ENSP/' files
+                      there are many data not match problems.
+
+gen_undirected_graph_index.py 
+                             after generate 'graph_index.csv', which is directed graph file (A<-->B)
+                             as we use undirected graph, so, change to A--B.
+gen_graph_pkl.py
+                As the graph loading time will cost several mins, just save graph structure to 'undirected_dataset.pkl' file.
+                every time just loading pkl file dirctly(several seconds)
+                
+hpc_multi.py
+              generate all the target protein nodes' shortest path to all the other nodes in the whole graph.
+              local running:
+                  $ python hpc_multi.py --infile input/0.in (1.in,2.in ...8.in)
+                   output folder (default): target_node_shortest_path
+              hpc running:
+                  needs hpc folder
+                  input list: cut the original target protein list to 9 input files. They are put in input folder.
+                  $ qsub.scipt
+                  Warning: remember to load module Gnu-parallel  in '.modules file'
