@@ -1,3 +1,11 @@
+*** warning ***
+libs:
+    python3.5
+    python-igraph (some functions are not compatible to python 3.7)
+    biopandas
+
+
+
 preprocess_dataset.py makes 'original_data/' folder's files to 'index_ENSP/' files
                       there are many data not match problems.
 
