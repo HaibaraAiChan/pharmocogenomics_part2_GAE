@@ -19,7 +19,7 @@ gen_graph_pkl.py
 hpc_multi.py
               generate all the target protein nodes' shortest path to all the other nodes in the whole graph.
               local running:
-                  $ python hpc_multi.py --infile input/0.in (1.in,2.in ...8.in)
+                  $ python simple_hpc_multi.py --infile input/0.in (1.in,2.in ...8.in)
                    output folder (default): 'target_node_shortest_path/'
                    graph_structure_model(defalut):'undirected_dataset.pkl'
               hpc running:
