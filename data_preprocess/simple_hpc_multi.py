@@ -26,16 +26,18 @@ def worker(path_list, start_node, g):
         if len(path) == 1:
             continue
         sum_path = 0
+        w_list =[]
         for i in range(1, len(path)):
             edges = g.es.select(_within=(path[i - 1], path[i]))
             dist = [e['weight'] for e in edges][0]
             sum_path = sum_path + (i / dist)
+            w_list.append((i/dist))
 
         dest_node = g.vs[path[-1]]['name']
         path_name_list = [g.vs[i]['name'] for i in path]
-        sum_path_list.append((start_node, dest_node, sum_path, str(path_name_list)))
+        sum_path_list.append((start_node, dest_node, sum_path, str(path_name_list), w_list))
 
-        if num % 20 == 0:
+        if num % 40 == 0:
             print(num)
         num = num + 1
     return sum_path_list
@@ -81,7 +83,7 @@ def shortest_path_4_one_node(start_node, g, out_folder):
     write start node to all the nodes' shortest path sum to one csv file
     """
     df_out = pd.DataFrame(sum_path_list,
-                          columns=['start_index', 'destination_index', 'shortest_path_distance', 'shortest_path_seq'])
+                          columns=['start_index', 'destination_index', 'shortest_path_distance', 'shortest_path_seq', 'weight_list'])
     df_out.to_csv(out_folder + 'path_dist_index_' + str(start_node) + '.csv', sep=',', index=False)
 
 
@@ -111,10 +113,10 @@ def getArgs():
 
 
 if __name__ == '__main__':
-    #output_folder = '../../../data/index_ENSP/target_node_shortest_path/'
+    # output_folder = '../../../data/index_ENSP/target_node_shortest_path/'
     # file = '../../../data/index_ENSP/cellline_index.csv'
     # # protein_list = find_all_target_nodes(file)
-    #protein_list_file = './input/0.in'
+    # protein_list_file = './input/0.in'
 
     parse = getArgs()
     output_folder = parse.outFolder
