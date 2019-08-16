@@ -1,4 +1,4 @@
-two .CSV files are example of output.
+ .CSV file is example of output.
 *.out folders are corresponding to *.in input target protein list.
 original input target protein list split to 9 small lists, each 43 protein index. total 9*43 = 387.
 each small list running on HPC mike about 2 hours.
