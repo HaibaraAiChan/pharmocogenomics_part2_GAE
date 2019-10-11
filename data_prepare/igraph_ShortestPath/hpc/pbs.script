@@ -1,0 +1,13 @@
+#!/bin/bash
+#PBS -l nodes=9:ppn=16
+#PBS -l walltime=12:00:00
+#PBS -N compare_M
+#PBS -j oe
+#PBS -q workq
+#PBS -A hpc_michal01
+
+
+source activate py_3.5
+export WDIR=/work/syang29/py_3.5_multi/
+cd $WDIR;
+parallel -j 16 --slf $PBS_NODEFILE --wd $WDIR --joblog logs/task.log sh run_mapping.sh {}  :::: input.lst
