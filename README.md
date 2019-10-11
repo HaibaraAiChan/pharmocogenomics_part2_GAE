@@ -1,4 +1,4 @@
-# pharmocogenomics_part2_GCN  
+# pharmocogenomics_part2_GAE 
 #### GCN+VAE (Graph Convolutional Network & AutoEncoder)   
 ![steps](images/steps.png)
 #### Steps:  
