@@ -11,7 +11,6 @@ from igraph import *
 import numpy as np
 from multiprocessing import Pool
 
-
 def find_all_target_nodes(file):
     df = pd.read_csv(file, delimiter=',')
     uni_pro_list = df['Protein'].unique()
@@ -60,7 +59,7 @@ def shortest_path_4_one_node(start_node, g, out_folder):
 
     size = len(sh_path)
 
-    P_NUM = 10
+    P_NUM = 1
     p = Pool(P_NUM)
     rest_list = []
     if size % P_NUM != 0:
@@ -92,24 +91,6 @@ def read_file(filename):
     list_ = [i.strip("\n").strip(" ") for i in list(f)]
     f.close()
     return list_
-
-
-def getArgs():
-    parser = argparse.ArgumentParser()
-    parser.add_argument('--outFolder',
-                        required=False,
-                        default='./target_node_shortest_path/',
-                        help='path of output folder.')
-    parser.add_argument('--infile',
-                        required=True,
-                        default='',
-                        help='input file path and name.')
-    parser.add_argument('--graph',
-                        required=False,
-                        default='./undirected_graph_index.csv',
-                        help='graph file.')
-
-    return parser.parse_args()
 
 
 if __name__ == '__main__':
